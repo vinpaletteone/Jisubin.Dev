@@ -145,6 +145,7 @@ window.onload = function(){
 		
 		if(container.has(e.target).length === 0){
 			$('body').css("overflow", "scroll");
+			$('header').css('display', 'block');
 			container.hide();
 		}
 	});
