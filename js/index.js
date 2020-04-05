@@ -101,11 +101,13 @@ window.onload = function(){
 	//nav 열기 
 	$('#buger').click(function(){
 		$('.mobile-wrap').css('display', 'block');
+		$('body').css("overflow", "hidden");
 	});	
 			
 	//nav 닫기 
 	$('#buger-close').click(function(){
 		$('.mobile-wrap').css('display', 'none');
+		$('body').css("overflow", "scroll");
 	});
 
 	//resize
@@ -117,14 +119,16 @@ window.onload = function(){
 	//modal
 	$('.project-content').click(function(){
 		let modalId = $(this).attr('id');
-
-		if(modalId != "project4"){
+		
+		if($(this).attr('id') == modalId){
 			$('header').css('display', 'none');
 			
 			$("#modal-container").fadeIn(300);
-			$("." + modalId).fadeIn(300);
+			$("." + modalId).fadeIn(300); // fadeOut 필요
 			
 			$('body').css("overflow", "hidden");
+			$('.scrolltop').hide();
+			
 		}
 	});
 	
@@ -132,8 +136,10 @@ window.onload = function(){
 	//modal 닫기
 	$(".modal-info img").click(function(){
 		$("#modal-container").fadeOut(300);
+		$(".modal-wrap").fadeOut(300);
 		$('body').css("overflow", "scroll");
 		$('header').css('display', 'block');
+		$('.scrolltop').show();
 		
 		return false;
 	});
