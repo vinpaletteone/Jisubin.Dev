@@ -34,7 +34,7 @@ window.onload = function(){
 		}
 		
 		//header 붙이기
-		console.log($(this).scrollTop());
+		//console.log($(this).scrollTop());
 		
 		let widthSize = window.outerWidth;
 
@@ -80,21 +80,22 @@ window.onload = function(){
 		let offset = 50;
 		let widthSize = window.outerWidth;
 		
-		if(widthSize <= 768){
-			offset = 67;	
+		if(id == ".section02" || id == ".section03" || id == ".section04"){
+			if(widthSize <= 768){
+				offset = 67;	
+			}
+	
+			let target = $(id).offset().top - offset;
+	
+			//메뉴 닫기
+			widthResize();
+	
+			$('html, body').animate({
+				scrollTop: target
+			}, 500);
+			event.preventDefault();
 		}
-
-		let target = $(id).offset().top - offset;
-		console.log("target : " + target);
-
-		//메뉴 닫기
-		widthResize();
-
-		$('html, body').animate({
-			scrollTop: target
-		}, 500);
 		
-		event.preventDefault();
 	});
 
 

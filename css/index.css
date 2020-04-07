@@ -46,22 +46,35 @@ header{
 	z-index: 333;
 }
 
+.header-container > a{
+	float: left;
+}
+
 .header-container img{
 	padding-top: 37px;
-	float: left;
-	margin-right: 556px;
 }
 
 #buger, #buger-close{
 	display: none;
 }
 
-nav > ul > li > a{
+nav{
+	float: right;
+}
+
+nav > ul > li{
 	float: left;
+	padding-top: 43px;
+	margin-right: 107px;
+}
+
+nav > ul > li:last-child{
+	margin-right: 0;
+}
+
+nav > ul > li > a{
 	font-size: 17px;
 	color: #969696;
-	margin-right: 107px;
-	padding-top: 43px;
 	text-decoration: none;
 }
 
@@ -70,7 +83,8 @@ nav > ul > li:last-child > a{
 }
 
 .header-container::after, nav > ul::after, .profile::after, .impact ul::after, 
-.project-info::after, .project-box::after, .stack-box::after, .footer-box::after, .modal-info::after{
+.project-info::after, .project-box::after, .stack-box::after, .footer-box::after, .modal-info::after,
+.mobile-wrap::after{
 	content: "";
 	display: block;
 	clear: both;
@@ -118,10 +132,6 @@ nav a:hover:after {
 	transition: 0s;
 }
 
-.mobile-wrap{
-	display: block;
-}
-
 @media screen and (max-width: 768px) {
     #buger{
 		display: inline-block;
@@ -158,6 +168,10 @@ nav a:hover:after {
 		display: block;
 	} */
 	
+	.header-container a{
+		float: none;
+	}
+
 	.header-container img {
 		width: 86px;
 		height: 19px;
@@ -180,24 +194,25 @@ nav a:hover:after {
 
 	nav{
 		padding-top: 50%;
+		float: none;
+	}
+
+	nav > ul > li{
+		float: none;
+		margin-right: 0;
+		text-align: center;
+		padding: 20px 90px;
 	}
 
 	nav > ul > li > a{
 		font-size: 25px;
 		color:#ffffff8f;
 		font-weight: 500;
-		float: none;
-		margin-right: 0;
 		padding-top: 0;
 	}
 
 	nav > ul > li:hover > a{
 		color: white;
-	}
-
-	nav li{
-		text-align: center;
-		padding: 20px 90px;
 	}
 
 	nav a::after, nav a::before {
@@ -243,11 +258,13 @@ nav a:hover:after {
 	border: 0.5px solid #868686;
 	display: inline-block;
 	position: relative;
-	top: -6px;
+	height: 0.5px;
+	top: 7px;
 	left: -1px;
+    z-index: -1;
 }
 
-.circle{
+/* .circle{
 	display: inline-block;
 	width: 10px;
 	height: 10px;
@@ -256,11 +273,26 @@ nav a:hover:after {
 	position: relative;
     left: -3px;
     top: -1px;
+} */
+
+.icon::after{
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: #FFE0E3;
+	border-radius: 50%;
+	position: relative;
+    left: 19px;
+	top: -8px;
+	
 }
+
 
 .tip{
 	font-size: 11px;
 	color: #A2A2A2;
+	padding-left: 10px;
 }
 
 .profile{
@@ -293,7 +325,7 @@ nav a:hover:after {
 }
 
 .profile-line{
-	width: 1188px;
+	max-width: 1188px;
 	border: 1px solid #DBDBDB;
 	margin: 18px 0 0 10px;
 }
@@ -336,6 +368,19 @@ nav a:hover:after {
 
 	.profile b{
 		font-size: 19px;
+	}
+
+	.icon{
+		top: 10px;
+	}
+
+	.icon::after{
+		left: 12px;
+		top: -9px;
+	}
+
+	.tip{
+		padding-left: 0;
 	}
 
 }
@@ -1179,6 +1224,7 @@ footer{
 
 	.content-list li {
 		margin-left: 10px;
+		margin-bottom: 5px;
 	}
 
 	.content-text, .content-footer span{
